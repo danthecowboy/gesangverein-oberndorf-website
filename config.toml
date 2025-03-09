@@ -1,4 +1,4 @@
-baseURL = 'http://farbdrang.de/saengerlust'
+baseURL = 'https://www.gesangverein-oberndorf.de'
 languageCode = 'de-de'
 title = 'Gesangverein Sängerlust 1911 Oberndorf'
 theme = 'basic'
