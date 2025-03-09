@@ -41,3 +41,6 @@ jobs:
         # run: lftp -e "set ftp:use-mdtm off; set ftp:use-mlsd on; mirror --parallel=100 -R ./public/ /saengerlust/; quit" ${{ secrets.FTP_HOSTNAME }}
         run: lftp -e "mirror -R ./public/ /; quit" ${{ secrets.FTP_HOSTNAME }}
 
+      - name: 🔑 delete Secrets
+        run: rm ~/.netrc
+
