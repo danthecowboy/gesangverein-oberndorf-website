@@ -29,6 +29,6 @@ jobs:
         run: sudo apt install sshpass
 
       - name: 📁 Upload Folder
-        run: sshpass scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -rp public ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_HOSTNAME }}:/.
+        run: sshpass scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -rp ./public ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_HOSTNAME }}:/
         env:
           SSHPASS: ${{ secrets.FTP_PASSWORD }}
