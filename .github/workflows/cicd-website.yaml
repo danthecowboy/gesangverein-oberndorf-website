@@ -25,22 +25,10 @@ jobs:
       - name: 🛠️ Build
         run: hugo -E -D --minify
 
-      - name: 📦 Get LFTP
-        run: sudo apt install lftp
-
-      - name: 🛠️ Configure LFTP
-        run: mkdir ~/.lftp && echo "set ssl:verify-certificate false;" >> ~/.lftp/rc
-
-      - name: 🔑 Load Secrets
-        run: echo "machine ${{ secrets.FTP_HOSTNAME }} login ${{ secrets.FTP_USERNAME }} password ${{ secrets.FTP_PASSWORD }}" > ~/.netrc
-
-      #- name: 🔑 Remove Target Folder
-      #run: lftp -e "rm -r /saengerlust/; quit" ${{ secrets.FTP_HOSTNAME }}
+      - name: 📦 Get SSHPASS
+        run: sudo apt install sshpass
 
       - name: 📁 Upload Folder
-        # run: lftp -e "set ftp:use-mdtm off; set ftp:use-mlsd on; mirror --parallel=100 -R ./public/ /saengerlust/; quit" ${{ secrets.FTP_HOSTNAME }}
-        run: lftp -e "mirror -R ./public/ /; quit" ${{ secrets.FTP_HOSTNAME }}
-
-      - name: 🔑 delete Secrets
-        run: rm ~/.netrc
-
+        run: sshpass scp -rp public ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_HOSTNAME }}:/.
+        env:
+          SSHPASS: ${{ secrets.FTP_PASSWORD }}
