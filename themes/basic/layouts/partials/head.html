@@ -1,0 +1,15 @@
+<head>
+  <meta name="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{{.Site.Title}}</title>
+  <link href="{{"css/bootstrap.min.css"|relURL}}" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"> -->
+  {{ if .Page.Params.useGallery}}
+    <link rel="stylesheet async" as="style" href="{{"css/lightbox.min.css"|relURL}}">
+  {{ end }}
+  <link rel="stylesheet async" as="style" href="{{"css/style.css"|relURL}}">
+  <link rel="font async" as="font" href="{{"Lato-Regular.ttf"|relURL}}">
+  <link rel="font async" as="font" href="{{"tangfont.woff2"|relURL}}">
+
+</head>

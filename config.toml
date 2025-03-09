@@ -1,0 +1,44 @@
+baseURL = 'http://farbdrang.de/saengerlust'
+languageCode = 'de-de'
+title = 'Gesangverein Sängerlust 1911 Oberndorf'
+theme = 'basic'
+
+[menu]
+  [[menu.main]]
+    identifier = "start"
+    name = "Startseite"
+    url = "/"
+    weight = 1  
+  [[menu.main]]
+    identifier = "verein"
+    name = "Verein"
+    url = "/verein"
+    weight = 2
+  [[menu.main]]
+    identifier = "wirueberuns"
+    name = "Wir über uns"
+    url = "/verein/wirueberuns"
+    parent = "verein"
+    weight = 2
+  [[menu.main]]
+    identifier = "vorstand"
+    name = "Vorstand"
+    url = "/verein/vorstand"
+    parent = "verein"
+    weight = 2
+  [[menu.main]]
+    identifier = "anschrift"
+    name = "Anschrift und Proberaum"
+    url = "/verein/anschrift"
+    parent = "verein"
+    weight = 2
+  [[menu.main]]
+    identifier = "links"
+    name = "Links"
+    url = "/links"
+    weight = 3
+  [[menu.main]]
+    identifier = "termine"
+    name = "Termine"
+    url = "/termine"
+    weight = 3

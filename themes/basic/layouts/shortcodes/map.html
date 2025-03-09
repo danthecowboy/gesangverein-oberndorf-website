@@ -1,0 +1,108 @@
+
+<!-- "strasse" "long" "lat" "prozent" -->
+
+<script>
+  let strassen = [
+{{ $data := getCSV "," "content/data/" "interesse.csv" }}
+{{ range $data }}
+  {{ $row := . }}
+  {name: "{{ index $row 0 }}",long:"{{ index $row 1 }}",lat:"{{ index $row 2}}",prz:{{ index $row 3 }}},
+{{end}}
+  ];
+</script>
+
+<style>
+  .centeredButton {
+    position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+ }
+</style>
+
+
+<div id="map" style="height: 60vh"></div>
+<div id="mapConsent" style="height: 60vh">
+  <img src="/images/blur_map.png" alt="map" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+  <div class="centeredButton">
+    <p>
+      Durch Betätigung des Buttons wird eine OpenStreetMap-Karte geladen, wodurch personenbezogene Daten an einen Drittanbieter übertragen werden. Weitere detaillierte Informationen über OpenStreetMap können Sie in unserer Datenschutzerklärung einsehen.
+    </p>
+    <p>
+      <a href="/datenschutz">Datenschutzerklärung</a>
+    </p>
+    <button id="consentButton" type="button" class="btn btn-primary">Karte anzeigen</button>
+  </div>
+</div>
+
+<script>
+  let mapConsent = sessionStorage.getItem('consentMap');
+  if (mapConsent !== 'true') {
+    document.getElementById('map').style.display = 'none';
+  } else {
+    document.getElementById('mapConsent').style.display = 'none';
+  }
+
+  document.getElementById('consentButton').addEventListener('click', function() {
+    document.getElementById('map').style.display = 'block';
+    sessionStorage.setItem('consentMap', 'true');
+    window.location.reload();
+  });
+
+  if (mapConsent === 'true') {
+   
+  // create styles here
+  let styleDone = [];
+  for(let i = 0; i < strassen.length; i++) {
+    let strasse = strassen[i];
+    if (!styleDone.includes(strasse.prz)) {
+      styleDone.push(strasse.prz);
+      let style = document.createElement('style');
+      style.innerHTML = `
+        .icon-marker-${strasse.prz} {
+          background-color: hsl(${parseInt(strasse.prz) + 20}, 50%, 50%);
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+  }
+
+  // Initialize the map
+  var map = L.map('map').setView([50.191450520595794, 9.472492179630756], 15);
+
+  // Add a tile layer to the map (you can choose a different provider and URL)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  for(let i = 0; i < strassen.length; i++) {
+    let strasse = strassen[i];
+
+    let myIcon = L.divIcon({
+      html: strasse.prz + "%",
+      iconSize: [60, 40],
+      className: "mapicon icon-marker-" + strasse.prz,
+    });
+    try {
+    L.marker([strasse.long, strasse.lat], {icon: myIcon}).addTo(map)
+      .bindPopup(
+        "<p>" +
+                    "<span class='text-secondary text-lg font-accent'>" +
+                    strasse.name +
+                    "</span>" +
+                    "<br/>" +
+                    "<span class='text-primary text-2xl font-bold'>" +
+                    strasse.prz +
+                    "%</span>" +
+                    "<span class='text-secondary'> der Haushalte</span>" +
+                    "</p>"
+      ); 
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  }
+
+</script>

@@ -1,0 +1,11 @@
+
+{{define "main"}}
+<div class="container bg-white container-custom">
+  {{ if .Page.Resources.Match "img/header.png" }}
+      {{ $header := .Page.Resources.GetMatch "img/header.png" }}
+    <div class='featured-image lazy lazy-bg-image' data-background="{{ $header.Permalink }}" ></div>
+  {{ end }}   
+  {{.Content}}
+  <br/>
+</div>
+{{end}}
