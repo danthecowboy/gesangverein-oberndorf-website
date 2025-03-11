@@ -7,6 +7,6 @@ useGallery: true
  
 ## Auftritt beim Liederabend in Burgsinn
 
-Am 26.10.2024 hatten wir einen Auftritt in Burginn und feierten mit dem Rhönis das Jubiläum.
+Am 26.10.2024 hatten wir einen Auftritt in Burginn und feierten mit den Rhönis das Jubiläum.
 
 {{< gallery dir="img" >}}

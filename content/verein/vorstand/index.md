@@ -9,11 +9,11 @@ draft: true
 | Vorsitzender         | Claus Walter        |
 | 2. Vorsitzender      | Georg Desch         |
 | Kassierer            | Michael Grob        |
+| Kassierer Stellv     | Daniel Haberkorn    |
 | Schriftführer        | René Knopp          |
 | Schriftführer Stellv | Jochen Röder        |
-| Beisitzer 1          | Martin Lingenfelder |
-| Beisitzer 2          | Daniel Haberkorn    |
-| Beisitzer 3          | Franz-Josef Bien    |
+| Beisitzer            | Martin Lingenfelder |
+| Beisitzer            | Franz-Josef Bien    |
 
 ---
 

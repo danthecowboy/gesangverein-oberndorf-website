@@ -22,6 +22,6 @@ Wenn Sie Interesse am Singen haben, sind sie bei unseren Chorproben herzlich wil
 
 Zum Download
 
-[Antrag auf Mitgliedschaft im Gesangverein "Sängerlust " 1911 Oberndorf](https://gesangverein-oberndorf.de/images/stories/Download/Antrag_auf_Mitgliedschaft.pdf)
+[Antrag auf Mitgliedschaft im Gesangverein "Sängerlust " 1911 Oberndorf](https://gesangverein-oberndorf.de/Antrag_auf_Mitgliedschaft.pdf)
 
-[Satzung des Vereins](https://gesangverein-oberndorf.de/images/stories/Download/Satzung_des_Vereins.pdf)
+[Satzung des Vereins](https://gesangverein-oberndorf.de/SatzungGV.pdf)
