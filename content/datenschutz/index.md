@@ -9,10 +9,6 @@ menu: footer
 
 Wir nutzen für unsere Website gesangverein-oberndorf.de, unter anderem ein Webhosting-Anbieter. Anbieter dahinter ist das deutsche Unternehmen netcup GmbH.
 
-```
-TBD.
-```
-
 Mehr über die Daten, die durch Verwendung von netcup GmbH verarbeitet werden, erfahrt ihr in deren Datenschutzerklärung.
 
 ### Verantwortliche Stelle für die Datenverarbeitung
